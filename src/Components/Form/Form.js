@@ -43,8 +43,7 @@ export default class Form extends Component {
 
     render(){
         return(
-            <div className="addProductForm">
-                <h1>Form</h1>
+            <div className="formWrapper">
                 <p>Image URL:<input
                     type="text"
                     name="imageUrl"
