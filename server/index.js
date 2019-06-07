@@ -15,7 +15,7 @@ massive(CONNECTION_STRING).then(dbInstance => {
     app.set('db', dbInstance)
 }).catch(err => console.log(err));
 
-
+app.get('/api/inventory', Ctrl.read)
 
 app.listen(SERVER_PORT, () => {
     console.log('we be listening on port', SERVER_PORT)
