@@ -11,23 +11,27 @@ class App extends Component{
     this.state = {
         products: [
             {
-                name: 'shoes',
+              id: 1,  
+              name: 'shoes',
                 price: 13,
                 imageUrl: 'https://cdn.shopify.com/s/files/1/0217/3274/products/pau3053_103_h_large.jpg?v=1548799069'
         
             },
             {
-                name: 'gloves',
+               id: 2, 
+              name: 'gloves',
                 price: 25,
                 imageUrl: 'https://m.media-amazon.com/images/I/71dvOpAS7yL._SR500,500_.jpg'
             },
             {
-                name: 'hat',
+              id: 3,  
+              name: 'hat',
                 price: 35,
                 imageUrl: 'https://s.yimg.com/aah/yhst-83114501141346/mens-brown-fedora-hat-100-wool-untouchable-brim-hats-8345-54.jpg'
             },
             {
-                name: 'boot',
+              id: 4,  
+              name: 'boot',
                 price: 45,
                 imageUrl: 'url'
             }]
