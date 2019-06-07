@@ -33,9 +33,10 @@ class App extends Component{
     render(){
         return (
           <div className="App">
+             <Header />
             <Dashboard products={this.state.products}  getProducts={this.componentDidMount}/>
             <Form getProducts={this.componentDidMount} createProduct={this.createProduct} />
-            <Header />
+           
           </div>
   );
 }
