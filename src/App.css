@@ -1,12 +1,30 @@
 .App{
     display: flex;
     flex-direction: column;
+    align-items: center;
 
 }
 
 header{
   width: 90%;
-  height: 100px;
+  height: 50px;
   background: #AB2A19;
   padding: 0  0 0 20px;
+  color: white;
 }
+
+.dashBoardWrapper{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.productDisplay{
+  width: 300px;
+  height: 100px;
+  border: black solid 1px;
+  display: flex;
+
+}
+

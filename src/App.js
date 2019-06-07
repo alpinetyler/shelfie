@@ -34,8 +34,10 @@ class App extends Component{
         return (
           <div className="App">
              <Header />
+             <section className="dashBoardWrapper">
             <Dashboard products={this.state.products}  getProducts={this.componentDidMount}/>
             <Form getProducts={this.componentDidMount} createProduct={this.createProduct} />
+            </section>
            
           </div>
   );
