@@ -10,7 +10,8 @@ export default class Product extends Component {
             <div className="productDisplay">
                 <p><img src={imageurl} alt="picture of product" className="imageDisplay"/></p>
                 <p>Name: {name}</p>
-                <p>Price: {price}</p>  
+                <p>Price: {price}</p> 
+                <button className="deletebutton" onClick={this.props.delete}>Delete</button> 
             </div>
         )
     }

@@ -10,12 +10,8 @@ export default class Dashboard extends Component {
             
         }
     }
-    deleteRental = id => {
-        axios.delete(`/api/product/${id}`)
-            .then(res => this.setState({ product: res.data }))
-            .catch(err => console.log(err))
-    }
-
+    
+    
 
     render(){
         return(
@@ -23,7 +19,7 @@ export default class Dashboard extends Component {
               
                 {this.props.products.map((product, id) => {
                     return(
-                        <Product products={this.props.products[id]}/>   
+                        <Product products={this.props.products[id]} delete={this.props.delete}/>   
                     )
                 })}
                 

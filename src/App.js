@@ -30,12 +30,19 @@ class App extends Component{
         }).catch(err => console.log(err))
 }
 
+deleteProduct = id => {
+  axios.delete(`/api/product/${id}`)
+      .then(res => this.setState({product: res.data }))
+      .catch(err => console.log(err))
+}
+
+
     render(){
         return (
           <div className="App">
              <Header />
              <section className="dashBoardWrapper">
-            <Dashboard products={this.state.products}  getProducts={this.componentDidMount}/>
+            <Dashboard products={this.state.products}  getProducts={this.componentDidMount} delete={this.deleteProduct}/>
             <Form getProducts={this.componentDidMount} createProduct={this.createProduct} />
             </section>
            
