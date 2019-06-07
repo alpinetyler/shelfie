@@ -15,8 +15,7 @@ export default class Dashboard extends Component {
                 <h1>Dashboard</h1>
                 {this.props.products.map((product, id) => {
                     return(
-                        <Product products={this.props.products[id]}/> 
-                        
+                        <Product products={this.props.products[id]}/>   
                     )
                 })}
                 

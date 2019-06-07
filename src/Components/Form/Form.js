@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import axios from 'axios'
 
 export default class Form extends Component {
     constructor(props){
@@ -19,7 +20,9 @@ export default class Form extends Component {
         })
     }
 
-    handleClickCancel= () => {
+
+
+    clearForm = () => {
         this.setState({
             imageUrl: '',
             name: '',
@@ -27,16 +30,16 @@ export default class Form extends Component {
         })
     }
 
-    handleClickAdd= () => {
+    handleClick = () => {
         let newProduct = this.state
         this.props.createProduct(newProduct)
         this.setState({
             imageUrl: '',
             name: '',
             price: ''
+
         })
     }
-
 
     render(){
         return(
@@ -60,8 +63,8 @@ export default class Form extends Component {
                     placeholder="Price"
                     onChange={this.handleChange}
                     value={this.state.price} /></p>
-                    <button className="cancelButton" onClick={this.handleClickCancel}>Cancel</button>
-                    <button className="addInventorybutton" onClick={this.handleClickAdd}>Add Inventory</button>
+                    <button className="cancelButton" onClick={this.clearForm}>Cancel</button>
+                    <button className="addInventorybutton" onClick={this.handleClick}>Add Inventory</button>
             </div>
         )
     }

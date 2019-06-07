@@ -3,45 +3,38 @@ import './App.css';
 import Dashboard from './Components/Dashboard/Dashboard'
 import Form from './Components/Form/Form'
 import Header from './Components/Header/Header'
+import axios from 'axios';
 
 class App extends Component{
   constructor(props){
     super()
 
     this.state = {
-        products: [
-            {
-              id: 1,  
-              name: 'shoes',
-                price: 13,
-                imageUrl: 'https://cdn.shopify.com/s/files/1/0217/3274/products/pau3053_103_h_large.jpg?v=1548799069'
-        
-            },
-            {
-               id: 2, 
-              name: 'gloves',
-                price: 25,
-                imageUrl: 'https://m.media-amazon.com/images/I/71dvOpAS7yL._SR500,500_.jpg'
-            },
-            {
-              id: 3,  
-              name: 'hat',
-                price: 35,
-                imageUrl: 'https://s.yimg.com/aah/yhst-83114501141346/mens-brown-fedora-hat-100-wool-untouchable-brim-hats-8345-54.jpg'
-            },
-            {
-              id: 4,  
-              name: 'boot',
-                price: 45,
-                imageUrl: 'url'
-            }]
+        products: []
     }
 }
+  componentDidMount = () => {
+    axios.get('/api/inventory').then((res) => {
+      this.setState({
+        products: res.data
+      })
+    }).catch(err => console.log('error getting products:', err))
+  }
+
+  createProduct = newProduct => {
+    axios.post('/api/product', newProduct)
+        .then(res => {
+            this.setState({
+                products: res.data
+            })
+        }).catch(err => console.log(err))
+}
+
     render(){
         return (
           <div className="App">
-            <Dashboard products={this.state.products} />
-            <Form />
+            <Dashboard products={this.state.products}  getProducts={this.componentDidMount}/>
+            <Form getProducts={this.componentDidMount} createProduct={this.createProduct} />
             <Header />
           </div>
   );

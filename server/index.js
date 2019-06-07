@@ -16,6 +16,8 @@ massive(CONNECTION_STRING).then(dbInstance => {
 }).catch(err => console.log(err));
 
 app.get('/api/inventory', Ctrl.read)
+app.post('/api/product', Ctrl.create)
+app.delete('/api/product/:id', Ctrl.delete)
 
 app.listen(SERVER_PORT, () => {
     console.log('we be listening on port', SERVER_PORT)
